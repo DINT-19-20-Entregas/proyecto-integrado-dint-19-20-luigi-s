@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>luigi.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -55,6 +58,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="User Controls\UserControlCategoria.xaml.cs">
+      <DependentUpon>UserControlCategoria.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\UserControlElementos.xaml.cs">
+      <DependentUpon>UserControlElementos.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,6 +76,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="User Controls\UserControlCategoria.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User Controls\UserControlElementos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -96,6 +113,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\New.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Tomato.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\luigi.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="luigi.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
