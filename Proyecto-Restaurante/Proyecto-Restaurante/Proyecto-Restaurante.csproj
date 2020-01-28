@@ -117,13 +117,13 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="User Controls\UserControlCategoria.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="UsersControl\UserControlCategoria.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="User Controls\UserControlElementos.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="UsersControl\UserControlElementos.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -162,9 +162,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\New.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\Tomato.ico" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\luigi.ico" />
