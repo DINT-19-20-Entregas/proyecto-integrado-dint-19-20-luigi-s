@@ -3,41 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Proyecto_Restaurante"
+        xmlns:local="clr-namespace:Proyecto_Restaurante.UsersControls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Icon="Imagenes/luigi.ico">
+    
     <Grid>
         <TabControl>
-            <TabItem>
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="Imagenes/New.ico" Width="35" Height="35"></Image>
-                        <Label FontSize="15" Content="Crear Categoria"></Label>
-                    </StackPanel>
-                </TabItem.Header>
-                <StackPanel Margin="10">
-                    <TextBlock Text="Identificador:"></TextBlock>
-                    <TextBox IsReadOnly="True"></TextBox>
-                    <TextBlock Text="Categoria:"></TextBlock>
-                    <TextBox></TextBox>
-                    <TextBlock Text="Imagen:"></TextBlock>
-                    <TextBox></TextBox>
-                    <Button Margin="10" Padding="5" Content="Crear Categoria" HorizontalAlignment="Center"></Button>
-                </StackPanel>
+            <TabItem Header="Categoria">
+                <local:UserControlCategoria/>
             </TabItem>
-            <TabItem>
-                <TabItem.Header>
-                    <Label FontSize="15" Content="Elminar Categoria"></Label>
-                </TabItem.Header>                
-                <StackPanel Margin="10">
-                    <ComboBox HorizontalAlignment="Center" Width="200"></ComboBox>
-                    <TextBlock Text="Identificador:"></TextBlock>
-                    <TextBox IsReadOnly="True"></TextBox>
-                    <TextBlock Text="Categoria:"></TextBlock>
-                    <TextBox></TextBox>
-                    <TextBlock Text="Imagen:"></TextBlock>
-                    <TextBox></TextBox>
-                </StackPanel>
+
+            <TabItem Header="Elementos">
+                <local:UserControlElementos/>
             </TabItem>
         </TabControl>
     </Grid>
