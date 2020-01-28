@@ -15,10 +15,7 @@ namespace Proyecto_Restaurante.Vista_Modelo
 
         public ElementosVM()
         {
-            ListaElementos = new CollectionViewSource
-            {
-                Source = BBDDService.GetElementos()
-            };
+            
         }
 
         public CollectionViewSource ListaElementos { get; set; }

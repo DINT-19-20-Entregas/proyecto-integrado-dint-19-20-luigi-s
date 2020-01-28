@@ -101,6 +101,7 @@
     <Compile Include="Service\BBDDService.cs" />
     <Compile Include="UsersControl\UserControlCategoria.xaml.cs" />
     <Compile Include="UsersControl\UserControlElementos.xaml.cs" />
+    <Compile Include="Vista Modelo\CategoriaVM.cs" />
     <Compile Include="Vista Modelo\ElementosVM.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
