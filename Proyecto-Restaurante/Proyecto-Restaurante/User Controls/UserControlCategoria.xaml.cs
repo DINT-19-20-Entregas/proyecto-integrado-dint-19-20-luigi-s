@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proyecto_Restaurante.Vista_Modelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace Proyecto_Restaurante.User_Controls
         public UserControlCategoria()
         {
             InitializeComponent();
+            DataContext = new CategoriaVM();
         }
     }
 }
