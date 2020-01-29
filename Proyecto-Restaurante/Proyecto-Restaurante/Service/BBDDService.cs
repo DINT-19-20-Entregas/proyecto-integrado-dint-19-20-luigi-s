@@ -31,9 +31,9 @@ namespace Proyecto_Restaurante.Servicios
             return _contexto.elementosCarta.Local;
         }
 
-        private static ObservableCollection<Pedidos> getPedidos()
+        public static ObservableCollection<Pedidos> GetPedidos()
         {
-            return _contexto.Pedidos.Local;
+            return _contexto.Pedidos.Local;            
         }
 
 
