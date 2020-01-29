@@ -24,6 +24,10 @@
             <TabItem Header="Elementos">
                 <local:UserControlElementos/>
             </TabItem>
+
+            <TabItem Header="Pedidos">
+                <local:UserControlPedidos/>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>

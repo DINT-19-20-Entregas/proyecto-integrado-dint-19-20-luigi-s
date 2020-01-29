@@ -32,7 +32,7 @@ namespace Proyecto_Restaurante.Servicios
 
         public static ObservableCollection<Pedidos> GetPedidos()
         {
-            return _contexto.Pedidos.Local;
+            return _contexto.Pedidos.Local;            
         }
 
         public static ObservableCollection<elementosCarta> GetElementosCarta()

@@ -101,8 +101,12 @@
     <Compile Include="Service\BBDDService.cs" />
     <Compile Include="UsersControl\UserControlCategoria.xaml.cs" />
     <Compile Include="UsersControl\UserControlElementos.xaml.cs" />
+    <Compile Include="UsersControl\UserControlPedidos.xaml.cs">
+      <DependentUpon>UserControlPedidos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vista Modelo\CategoriaVM.cs" />
     <Compile Include="Vista Modelo\ElementosVM.cs" />
+    <Compile Include="Vista Modelo\PedidosVM.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -122,6 +126,10 @@
     <Page Include="UsersControl\UserControlElementos.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UsersControl\UserControlPedidos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
