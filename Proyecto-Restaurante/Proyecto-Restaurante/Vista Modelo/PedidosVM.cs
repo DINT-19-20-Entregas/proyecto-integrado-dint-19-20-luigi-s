@@ -15,7 +15,7 @@ namespace Proyecto_Restaurante.Vista_Modelo
 
         public PedidosVM()
         {            
-            Pedidos = BBDDService.GetPedidos(); 
+            //Pedidos = BBDDService.GetPedidos(); 
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
