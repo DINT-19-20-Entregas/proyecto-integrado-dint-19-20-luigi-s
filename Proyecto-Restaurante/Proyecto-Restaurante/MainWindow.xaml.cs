@@ -24,5 +24,10 @@ namespace Proyecto_Restaurante
         {
             InitializeComponent();
         }
+
+        private void ButtonCerrarVentana_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

@@ -9,7 +9,7 @@
     <Grid>
         <DataGrid Margin="10" x:Name="PedidosDataGrid"  Grid.Column="0" Grid.Row="0"  SelectedItem="{Binding PedidoSeleccionado}" ItemsSource="{Binding ListaPedidos.View}" SelectionMode="Single" SelectionUnit="FullRow" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="100" Header="Identificador" Binding="{Binding idPedido}"></DataGridTextColumn>
+                <DataGridTextColumn Width="120" Header="Identificador" Binding="{Binding idPedido}"></DataGridTextColumn>
                 <DataGridTextColumn Width="*" Header="Fecha" Binding="{Binding fecha}"/>
                 <DataGridCheckBoxColumn Width="100" Header="Servido" Binding="{Binding servido}"/>
             </DataGrid.Columns>
