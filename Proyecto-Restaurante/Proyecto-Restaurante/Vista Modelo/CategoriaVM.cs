@@ -14,20 +14,13 @@ namespace Proyecto_Restaurante.Vista_Modelo
     {
         public ObservableCollection<Categorias> ListaCategorias { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
-        private int id { get; set; }
-        private int categoria { get; set; }
-        private string imagen { get; set; }
+        public ObservableCollection<Categorias> Categorias { get; set; }
 
-        public CategoriaVM(int id, int categoria, string imagen)
+
+        public CategoriaVM()
         {
-            this.id = id;
-            this.categoria = categoria;
-            this.imagen = imagen;
+            Categorias = BBDDService.GetCategorias();
         }
 
-        public override string ToString()
-        {
-            return "id = "+id+", categoria = "+categoria+", imagen = "+imagen;
-        }
     }
 }

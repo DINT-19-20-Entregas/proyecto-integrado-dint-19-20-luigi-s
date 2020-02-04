@@ -29,5 +29,10 @@ namespace Proyecto_Restaurante
         {
             Application.Current.Shutdown();
         }
+
+        private void ButtonLuz_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
