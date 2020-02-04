@@ -12,6 +12,19 @@
             <Image Source="{Binding imagen}" Width="100" Height="100"></Image>
         </DataTemplate>
     </UserControl.Resources>
+
+    <UserControl.CommandBindings>
+        <CommandBinding 
+            Command="ApplicationCommands.New"
+            Executed="CommandBinding_Executed"
+            CanExecute="CommandBinding_CanExecute"/>
+
+        <CommandBinding 
+            Command="ApplicationCommands.Delete"
+            Executed="CommandBinding_Executed_1"
+            CanExecute="CommandBinding_CanExecute_1"/>
+    </UserControl.CommandBindings>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -22,22 +35,23 @@
             <RowDefinition Height="100"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <DataGrid Margin="10" x:Name="PedidosDataGrid"  Grid.Column="0" Grid.Row="0"   ItemsSource="{Binding Categorias}" SelectionMode="Single" SelectionUnit="FullRow" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="False">
+        <DataGrid Margin="10" x:Name="CategoriasDataGrid"  Grid.Column="0" Grid.Row="0"   ItemsSource="{Binding Categorias}" SelectionMode="Single" SelectionUnit="FullRow" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="False">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Width="100" Header="Identificador" Binding="{Binding idCategoria}"></DataGridTextColumn>
                 <DataGridTextColumn Width="*" Header="Nombre" Binding="{Binding nombreCategoria}"/>
+                <DataGridTextColumn Header="Nº Elementos" Binding="{Binding elementosCarta.Count}"/>
                 <DataGridTemplateColumn CellTemplate="{StaticResource ImagenCategoria}"></DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 
-        <StackPanel Grid.Column="1" Grid.Row="0" Margin="20" VerticalAlignment="Center">
+        <StackPanel Grid.Column="1" Grid.Row="0" Margin="20" VerticalAlignment="Center" DataContext="{Binding ElementName=CategoriasDataGrid, Path=SelectedItem}">
             <TextBlock Text="Identificador"></TextBlock>
-            <TextBox Text="{Binding id}" IsReadOnly="True"></TextBox>
+            <TextBox x:Name="idCategoriaTextBox" Text="{Binding idCategoria}" IsReadOnly="True"></TextBox>
             <TextBlock Text="Nombre"></TextBlock>
-            <TextBox></TextBox>
+            <TextBox x:Name="nombreCategoriaTextBox" Text="{Binding nombreCategoria}"></TextBox>
             <TextBlock Text="Imagen"></TextBlock>
-            <TextBox></TextBox>
+            <TextBox x:Name="ImagenTextBox" Text="{Binding imagen}"></TextBox>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
 
