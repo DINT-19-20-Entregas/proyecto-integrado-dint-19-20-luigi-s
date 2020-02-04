@@ -17,7 +17,7 @@
             <RowDefinition Height="100"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <DataGrid Margin="10" x:Name="PedidosDataGrid"  Grid.Column="0" Grid.Row="0"  SelectedItem="{Binding PedidoSeleccionado}" ItemsSource="{Binding ListaPedidos.View}" SelectionMode="Single" SelectionUnit="FullRow" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="False">
+        <DataGrid Margin="10" x:Name="PedidosDataGrid"  Grid.Column="0" Grid.Row="0" ItemsSource="{Binding ListaCategorias}" SelectionMode="Single" SelectionUnit="FullRow" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="100" Header="Identificador" Binding="{Binding id}"></DataGridTextColumn>
                 <DataGridTextColumn Width="*" Header="Nombre" Binding="{Binding nombre}"/>
