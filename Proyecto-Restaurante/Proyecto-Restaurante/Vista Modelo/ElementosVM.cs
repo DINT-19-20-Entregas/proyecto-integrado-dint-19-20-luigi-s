@@ -1,6 +1,7 @@
 ﻿using Proyecto_Restaurante.Servicios;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -15,10 +16,10 @@ namespace Proyecto_Restaurante.Vista_Modelo
 
         public ElementosVM()
         {
-            
+            ListaElementos = BBDDService.GetElementos();
         }
 
-        public CollectionViewSource ListaElementos { get; set; }
+        public ObservableCollection<elementosCarta> ListaElementos { get; set; }
 
         
     }

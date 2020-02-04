@@ -6,13 +6,16 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Proyecto_Restaurante.Vista_Modelo
 {
     class CategoriaVM : INotifyPropertyChanged
     {
+        public ObservableCollection<Categorias> ListaCategorias { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
         public ObservableCollection<Categorias> Categorias { get; set; }
+
 
         public CategoriaVM()
         {
