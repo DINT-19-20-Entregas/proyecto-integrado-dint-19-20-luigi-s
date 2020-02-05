@@ -4,14 +4,28 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Proyecto_Restaurante.UsersControls"
+             xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="OrdenarPorFecha" Source="{Binding Pedidos}">
+            <CollectionViewSource.SortDescriptions>
+                <scm:SortDescription PropertyName="fecha"/>
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+    </UserControl.Resources>
+    
+    <UserControl.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Save"
+                        Executed="SaveCommandBinding_Executed"/>
+    </UserControl.CommandBindings>
+    
+    <Grid>        
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <DataGrid Grid.Column="0" Margin="10" x:Name="PedidosDataGrid"  ItemsSource="{Binding Pedidos}" SelectionMode="Single" SelectionUnit="FullRow" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="False">
+        <DataGrid   Grid.Column="0" Margin="10" x:Name="PedidosDataGrid" ItemsSource="{Binding Source={StaticResource OrdenarPorFecha}}" SelectionMode="Single" SelectionUnit="FullRow" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="False">
             <DataGrid.Columns>
                 <DataGridTextColumn IsReadOnly="True" Width="120" Header="Identificador" Binding="{Binding idPedido}"></DataGridTextColumn>
                 <DataGridTextColumn IsReadOnly="True" Width="*" Header="Fecha" Binding="{Binding fecha}"/>
@@ -19,13 +33,26 @@
             </DataGrid.Columns>
         </DataGrid>
 
+        
+        
         <StackPanel Grid.Column="1" HorizontalAlignment="Center" Margin="10">
-            <TextBlock Text="Elementos del Pedido" FontSize="25"></TextBlock>
+            <TextBlock Margin="10" HorizontalAlignment="Center" Text="Elementos del Pedido" FontSize="25"></TextBlock>
 
-            <ListBox>
-                <Image></Image>
-                <TextBlock></TextBlock>
-            </ListBox>
+            <ListBox ItemsSource="{Binding ElementName=PedidosDataGrid, Path=SelectedItem.elementosCarta}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel></WrapPanel>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <Image Margin="5" Source="{Binding imagen}" Width="200" Height="200"></Image>
+                            <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding nombreElemento}"></TextBlock>
+                        </StackPanel>                        
+                    </DataTemplate>    
+                </ListBox.ItemTemplate>                
+            </ListBox>            
         </StackPanel>        
     </Grid>
 </UserControl>
