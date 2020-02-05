@@ -23,5 +23,10 @@ namespace Proyecto_Restaurante.UsersControls
             InitializeComponent();
             this.DataContext = new PedidosVM(); 
         }
+
+        private void SaveCommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            (this.DataContext as PedidosVM).Guardar();
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace Proyecto_Restaurante.Servicios
         {
             _contexto.Categorias.Load();
             _contexto.elementosCarta.Load();
-            _contexto.Pedidos.Load();
+            _contexto.Pedidos.Include("elementosCarta").Load();
         }
 
         public static ObservableCollection<Categorias> GetCategorias()

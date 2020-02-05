@@ -18,6 +18,11 @@ namespace Proyecto_Restaurante.Vista_Modelo
             Pedidos = BBDDService.GetPedidos(); 
         }
 
+        public void Guardar()
+        {
+            BBDDService.UpdateDB();
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
     }
 }
