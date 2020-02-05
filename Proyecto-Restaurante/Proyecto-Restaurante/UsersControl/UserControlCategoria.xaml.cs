@@ -44,10 +44,13 @@ namespace Proyecto_Restaurante.UsersControls
 
         private void CommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            c.nombreCategoria = nombreCategoriaTextBox.Text;
-            c.imagen = ImagenTextBox.Text;
-            if (!(this.DataContext as CategoriaVM).Existe(c) || c.imagen != null)
-                e.CanExecute = true;
+            if (nombreCategoriaTextBox.Text != "" && ImagenTextBox.Text != "")
+            {
+                c.nombreCategoria = nombreCategoriaTextBox.Text;
+                c.imagen = ImagenTextBox.Text;
+                if (!(this.DataContext as CategoriaVM).Existe(c) || c.imagen != null)
+                    e.CanExecute = true;
+            }
             else
                 e.CanExecute = false;
         }
@@ -60,11 +63,15 @@ namespace Proyecto_Restaurante.UsersControls
 
         private void CommandBinding_CanExecute_1(object sender, CanExecuteRoutedEventArgs e)
         {
-            c = (Categorias)CategoriasDataGrid.SelectedItem;
-            if (c.elementosCarta.Count != 0)
-                e.CanExecute = false;
-            else
-                e.CanExecute = true;
+            if(CategoriasDataGrid.SelectedItem != null)
+            {
+                c = (Categorias)CategoriasDataGrid.SelectedItem;
+                if (c.elementosCarta.Count != 0)
+                    e.CanExecute = false;
+                else
+                    e.CanExecute = true;
+            }
+            
         }
     }
 }

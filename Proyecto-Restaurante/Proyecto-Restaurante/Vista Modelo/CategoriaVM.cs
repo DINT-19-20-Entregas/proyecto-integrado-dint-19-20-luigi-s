@@ -12,7 +12,6 @@ namespace Proyecto_Restaurante.Vista_Modelo
 {
     class CategoriaVM : INotifyPropertyChanged
     {
-        public ObservableCollection<Categorias> ListaCategorias { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
         public ObservableCollection<Categorias> Categorias { get; set; }
 
@@ -37,7 +36,7 @@ namespace Proyecto_Restaurante.Vista_Modelo
         public bool Existe(Categorias c)
         {
             bool existe = false;
-            foreach (Categorias cLista in ListaCategorias)
+            foreach (Categorias cLista in Categorias)
             {
                 if (cLista.nombreCategoria.Equals(c.nombreCategoria))
                     existe = true;
