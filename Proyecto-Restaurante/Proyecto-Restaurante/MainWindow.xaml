@@ -26,10 +26,13 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" Background="DarkRed">
-            <StackPanel  Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0">                
+            <StackPanel  Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0">
+                <Button x:Name="ButtonLuz" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="ButtonLuz_Click">
+                    <materialDesign:PackIcon Kind="Lightbulb"/>
+                </Button>
                 <Button x:Name="ButtonFechar" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="ButtonCerrarVentana_Click">
                     <materialDesign:PackIcon Kind="Power"/>
-                </Button>
+                </Button>                
             </StackPanel>
         </Grid>
 

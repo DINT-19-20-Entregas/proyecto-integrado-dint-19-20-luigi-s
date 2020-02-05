@@ -1,33 +1,54 @@
-﻿using System;
+﻿using Proyecto_Restaurante.Servicios;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Proyecto_Restaurante.Vista_Modelo
 {
     class CategoriaVM : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        private int id { get; set; }
-        private int categoria { get; set; }
-        private string imagen { get; set; }
+        public ObservableCollection<Categorias> Categorias { get; set; }
+
 
         public CategoriaVM()
         {
+            Categorias = BBDDService.GetCategorias();
         }
 
-        public CategoriaVM(int id, int categoria, string imagen)
+        public void Añadir(Categorias c)
         {
-            this.id = id;
-            this.categoria = categoria;
-            this.imagen = imagen;
+            BBDDService.AddCategoria(c);
+            MessageBox.Show("Categoria añadida", "Confirmation", MessageBoxButton.OK , MessageBoxImage.Information);
         }
 
-        public override string ToString()
+        public void Eliminar(Categorias c)
         {
-            return "id = "+id+", categoria = "+categoria+", imagen = "+imagen;
+            BBDDService.DeleteCategoria(c);
+            MessageBox.Show("Categoria eliminada", "Confirmation", MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
+        public bool Existe(Categorias c)
+        {
+            bool existe = false;
+            foreach (Categorias cLista in Categorias)
+            {
+                if (cLista.nombreCategoria.Equals(c.nombreCategoria))
+                    existe = true;
+            }
+
+            return existe;
+        }
+
+        public void Guardar()
+        {
+            BBDDService.UpdateDB();
+        }
+
     }
 }
