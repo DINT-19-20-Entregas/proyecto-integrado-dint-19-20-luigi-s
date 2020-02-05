@@ -6,6 +6,15 @@
              xmlns:local="clr-namespace:Proyecto_Restaurante.UsersControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.CommandBindings>
+        <CommandBinding
+            Command="ApplicationCommands.New"
+            Executed="CommandBinding_Executed"
+            CanExecute="CommandBinding_CanExecute"/>
+
+
+
+    </UserControl.CommandBindings>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -20,25 +29,25 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Width="100" Header="Identificador" Binding="{Binding idElemento}"></DataGridTextColumn>
                 <DataGridTextColumn Width="*" Header="Nombre" Binding="{Binding nombreElemento}"/>
-                <DataGridTextColumn Width="100" Header="Categoria" Binding="{Binding Categorias.nombreCategoria}"/>
+                <DataGridTextColumn Width="150" Header="Categoria" Binding="{Binding Categoria.nombreCategoria}"/>
             </DataGrid.Columns>
         </DataGrid>
 
-        <StackPanel Grid.Column="1" Grid.Row="0" Margin="20" VerticalAlignment="Center">
+        <StackPanel Grid.Column="1" Grid.Row="0" Margin="20" VerticalAlignment="Center" DataContext="{Binding ElementName=PedidosDataGrid, Path=SelectedValue, Mode=OneWay}">
             <TextBlock Text="Identificador"></TextBlock>
-            <TextBox Text="{Binding id}" IsReadOnly="True"></TextBox>
+            <TextBox x:Name="IdTextbox" Text="{Binding idElemento}" IsReadOnly="True"></TextBox>
             <TextBlock Text="Nombre"></TextBlock>
-            <TextBox></TextBox>
+            <TextBox x:Name="NombreTextbox" Text="{Binding nombreElemento}"></TextBox>
             <TextBlock Text="Imagen"></TextBlock>
-            <TextBox></TextBox>
+            <TextBox x:Name="ImagenTextbox" Text="{Binding imagen}"></TextBox>
             <TextBlock Text="Descripcion"></TextBlock>
-            <TextBox></TextBox>
+            <TextBox x:Name="DescripcionTextbox" Text="{Binding descripcion}"></TextBox>
             <TextBlock Text="Precio"></TextBlock>
-            <TextBox></TextBox>
+            <TextBox x:Name="PrecioTextbox" Text="{Binding precio}"></TextBox>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
 
-                <Button Content="Añadir" Width="100" Margin="10"></Button>
+                <Button x:Name="AñadirButton" Content="Limpiar campos para añadir" Width="220" Margin="10"></Button>
                 <Button Content="Modificar" Width="100" Margin="10"></Button>
 
             </StackPanel>
