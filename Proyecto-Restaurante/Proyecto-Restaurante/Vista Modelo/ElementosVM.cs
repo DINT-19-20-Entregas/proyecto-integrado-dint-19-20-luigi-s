@@ -6,15 +6,13 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
+using System.Windows;
 using System.Windows.Data;
 
 namespace Proyecto_Restaurante.Vista_Modelo
 {
     class ElementosVM : INotifyPropertyChanged
     {
-        private bool limpiarCampos = false;
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ElementosVM()
@@ -24,10 +22,16 @@ namespace Proyecto_Restaurante.Vista_Modelo
 
         public ObservableCollection<elementosCarta> ListaElementos { get; set; }
 
-        public static void limpiaCampos(List<TextBox> listaTextBoxs)
+        public static bool puedoEliminar(bool tieneFocus)
         {
-            foreach (var item in listaTextBoxs)
-                item.Text = "";
+            return tieneFocus ? true : false;
+        }
+
+        public static void eliminaRegistro(elementosCarta e)
+        {
+            BBDDService.DeleteElementosCarta(e);
+            BBDDService.UpdateDB();
+            MessageBox.Show("Se eliminó el registro satisfactoriamente", "Correcto", MessageBoxButton.OK, MessageBoxImage.Asterisk);
         }
     }
 }

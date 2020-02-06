@@ -11,9 +11,10 @@
             Command="ApplicationCommands.New"
             Executed="CommandBinding_Executed"
             CanExecute="CommandBinding_CanExecute"/>
-
-
-
+        <CommandBinding 
+            Command="ApplicationCommands.Delete"
+            Executed="eliminar_Executed"
+            CanExecute="eliminar_CanExecute"/>
     </UserControl.CommandBindings>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -29,7 +30,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Width="100" Header="Identificador" Binding="{Binding idElemento}"></DataGridTextColumn>
                 <DataGridTextColumn Width="*" Header="Nombre" Binding="{Binding nombreElemento}"/>
-                <DataGridTextColumn Width="150" Header="Categoria" Binding="{Binding Categoria.nombreCategoria}"/>
+                <DataGridTextColumn Width="120" Header="Categoria" Binding="{Binding Categoria.nombreCategoria}"/>
             </DataGrid.Columns>
         </DataGrid>
 
@@ -47,13 +48,13 @@
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
 
-                <Button x:Name="AñadirButton" Content="Limpiar campos para añadir" Width="220" Margin="10"></Button>
+                <Button Content="Añadir" Width="100" Margin="10"></Button>
                 <Button Content="Modificar" Width="100" Margin="10"></Button>
 
             </StackPanel>
 
         </StackPanel>
 
-        <Button Content="Eliminar" Width="100" Grid.Column="0" Grid.Row="1" ></Button>    
+        <Button Content="Eliminar" Width="100" Grid.Column="0" Grid.Row="1" Command="ApplicationCommands.Delete"></Button>
     </Grid>
 </UserControl>

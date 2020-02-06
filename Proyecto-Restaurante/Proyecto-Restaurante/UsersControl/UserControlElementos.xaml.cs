@@ -21,28 +21,35 @@ namespace Proyecto_Restaurante.UsersControls
     /// </summary>
     public partial class UserControlElementos : UserControl
     {
-        private List<TextBox> listaTextBox;
         public UserControlElementos()
         {
             InitializeComponent();
             this.DataContext = new ElementosVM();
-            listaTextBox = new List<TextBox>();
-
-            listaTextBox.Add(IdTextbox);
-            listaTextBox.Add(PrecioTextbox);
-            listaTextBox.Add(NombreTextbox);
-            listaTextBox.Add(ImagenTextbox);
-            listaTextBox.Add(DescripcionTextbox);
         }
+
         private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            ElementosVM.limpiaCampos(listaTextBox);
 
         }
 
         private void CommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = true;
+
+        }
+
+        private void eliminar_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            elementosCarta elemento = (elementosCarta)PedidosDataGrid.SelectedItem;
+            ElementosVM.eliminaRegistro(elemento);
+            PedidosDataGrid.SelectedItem = null;
+        }
+
+        private void eliminar_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = false;
+
+            if (ElementosVM.puedoEliminar(PedidosDataGrid.SelectedItem != null)) // Si se ha seleccionado alguna celda del datagrid se podra eliminar
+                e.CanExecute = true;
         }
     }
 }
