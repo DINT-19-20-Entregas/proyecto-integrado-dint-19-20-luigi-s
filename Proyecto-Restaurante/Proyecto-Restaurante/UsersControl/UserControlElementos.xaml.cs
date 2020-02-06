@@ -26,5 +26,30 @@ namespace Proyecto_Restaurante.UsersControls
             InitializeComponent();
             this.DataContext = new ElementosVM();
         }
+
+        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+
+        }
+
+        private void CommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+
+        }
+
+        private void eliminar_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            elementosCarta elemento = (elementosCarta)PedidosDataGrid.SelectedItem;
+            ElementosVM.eliminaRegistro(elemento);
+            PedidosDataGrid.SelectedItem = null;
+        }
+
+        private void eliminar_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = false;
+
+            if (ElementosVM.puedoEliminar(PedidosDataGrid.SelectedItem != null)) // Si se ha seleccionado alguna celda del datagrid se podra eliminar
+                e.CanExecute = true;
+        }
     }
 }
