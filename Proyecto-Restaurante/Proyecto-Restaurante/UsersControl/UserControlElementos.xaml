@@ -15,6 +15,10 @@
             Command="ApplicationCommands.Delete"
             Executed="eliminar_Executed"
             CanExecute="eliminar_CanExecute"/>
+        <CommandBinding
+            Command="local:CustomCommands.Limpiar" 
+            Executed="LimpiarCampos_Executed"
+            CanExecute="Limpiar_CanExecute"/>
     </UserControl.CommandBindings>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -50,6 +54,7 @@
 
                 <Button Content="Añadir" Width="100" Margin="10"></Button>
                 <Button Content="Modificar" Width="100" Margin="10"></Button>
+                <Button Content="Limpiar" Width="100" Margin="10" Command="local:CustomCommands.Limpiar"></Button>
 
             </StackPanel>
 
