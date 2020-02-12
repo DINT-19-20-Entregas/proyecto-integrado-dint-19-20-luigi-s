@@ -19,7 +19,7 @@ namespace Proyecto_Restaurante.UsersControls
          }
        );
 
-        /*public static readonly RoutedUICommand Modificar = new RoutedUICommand(
+        public static readonly RoutedUICommand Modificar = new RoutedUICommand(
             "Modificar",
             "Modificar",
             typeof(CustomCommands),
@@ -27,6 +27,6 @@ namespace Proyecto_Restaurante.UsersControls
             {
                 new KeyGesture(Key.M, ModifierKeys.Control)
             }
-        );*/
+        );
     }
 }

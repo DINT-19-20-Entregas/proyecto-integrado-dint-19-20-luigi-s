@@ -1,4 +1,5 @@
-﻿using Proyecto_Restaurante.Vista_Modelo;
+﻿using Proyecto_Restaurante.Servicios;
+using Proyecto_Restaurante.Vista_Modelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,14 +39,19 @@ namespace Proyecto_Restaurante.UsersControls
         private void AñadirElemento_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             elementosCarta elemento = new elementosCarta();
-            elemento.Categoria = ...;
-            ElementosVM.añadeElemento()
+            elemento.idElemento = 100;
+            elemento.nombreElemento = NombreTextbox.Text;
+            elemento.imagen = ImagenTextbox.Text;
+            elemento.precio = Convert.ToDouble(PrecioTextbox.Text.ToString());
+            elemento.descripcion = DescripcionTextbox.Text;
+            elemento.idCategoria = Convert.ToInt32(IdCategoriaTextbox.Text);
+            ElementosVM.añadeElemento(elemento);
         }
 
         private void AñadirElemento_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = false;
-            if (!ElementosVM.puedoLimpiarCampos(listaTextBox))
+            if (ElementosVM.puedoLimpiarCampos(listaTextBox))
                 e.CanExecute = true;
         }
 
@@ -75,6 +81,18 @@ namespace Proyecto_Restaurante.UsersControls
             e.CanExecute = false;
             bool puedo = ElementosVM.puedoLimpiarCampos(listaTextBox);
             if (puedo)
+                e.CanExecute = true;
+        }
+
+        private void Modificar_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+
+        }
+
+        private void Modificar_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = false;
+            if (ElementosVM.puedoLimpiarCampos(listaTextBox))
                 e.CanExecute = true;
         }
     }

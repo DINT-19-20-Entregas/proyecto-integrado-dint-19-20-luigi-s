@@ -44,20 +44,24 @@ namespace Proyecto_Restaurante.Vista_Modelo
         public static bool puedoLimpiarCampos(List<TextBox> lista)
         {
             bool puedo = false;
-            foreach (var item in lista)
+            if (lista != null)
             {
-                if (item.Text.Trim() != "")
-                    puedo = true;
-                else
+                foreach (var item in lista)
                 {
-                    puedo = false;
-                    break;
+                    if (item.Text.Trim() != "")
+                        puedo = true;
                 }
             }
+            
             return puedo;
         }
 
         public static void añadeElemento(elementosCarta elemento)
+        {
+            BBDDService.AddElementoCarta(elemento);
+        }
+
+        public static void modificaElemento(elementosCarta elemento)
         {
             BBDDService.AddElementoCarta(elemento);
         }
