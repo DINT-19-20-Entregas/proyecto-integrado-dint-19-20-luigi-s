@@ -6,11 +6,18 @@
         xmlns:local="clr-namespace:Proyecto_Clientes"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
         xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
+        xmlns:userControl="clr-namespace:Proyecto_Clientes.UsersControls"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize" WindowState="Maximized" WindowStartupLocation="CenterScreen" WindowStyle="None">
 
     <Grid >
-        <Grid x:Name="GridBarraTitulo" Grid.ColumnSpan="2" Background="DarkRed" MouseDown="GridBarraTitulo_MouseDown">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        
+        <Grid x:Name="GridBarraTitulo" Grid.Row="0" Background="DarkRed" MouseDown="GridBarraTitulo_MouseDown">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0">
                 <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
                     <materialDesign:PackIcon Kind="Bell"/>
@@ -23,5 +30,8 @@
                 </Button>
             </StackPanel>
         </Grid>
+
+        <userControl:UserCarta Grid.Row="1"/>
+
     </Grid>
 </Window>
