@@ -30,9 +30,9 @@ namespace Proyecto_Restaurante
             Application.Current.Shutdown();
         }
 
-        private void ButtonLuz_Click(object sender, RoutedEventArgs e)
+        private void GridBarraTitulo_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            DragMove();
         }
     }
 }
