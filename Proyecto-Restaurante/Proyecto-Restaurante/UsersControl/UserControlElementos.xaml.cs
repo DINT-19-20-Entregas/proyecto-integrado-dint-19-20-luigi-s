@@ -1,4 +1,5 @@
-﻿using Proyecto_Restaurante.Vista_Modelo;
+﻿using Proyecto_Restaurante.Servicios;
+using Proyecto_Restaurante.Vista_Modelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,20 +22,37 @@ namespace Proyecto_Restaurante.UsersControls
     /// </summary>
     public partial class UserControlElementos : UserControl
     {
+        private List<TextBox> listaTextBox;
+
         public UserControlElementos()
         {
             InitializeComponent();
             this.DataContext = new ElementosVM();
+            listaTextBox = new List<TextBox>();
+            listaTextBox.Add(DescripcionTextbox);
+            listaTextBox.Add(IdTextbox);
+            listaTextBox.Add(ImagenTextbox);
+            listaTextBox.Add(NombreTextbox);
+            listaTextBox.Add(PrecioTextbox);
         }
 
-        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        private void AñadirElemento_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-
+            elementosCarta elemento = new elementosCarta();
+            elemento.idElemento = 100;
+            elemento.nombreElemento = NombreTextbox.Text;
+            elemento.imagen = ImagenTextbox.Text;
+            elemento.precio = Convert.ToDouble(PrecioTextbox.Text.ToString());
+            elemento.descripcion = DescripcionTextbox.Text;
+            elemento.idCategoria = Convert.ToInt32(IdCategoriaTextbox.Text);
+            ElementosVM.añadeElemento(elemento);
         }
 
-        private void CommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        private void AñadirElemento_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-
+            e.CanExecute = false;
+            if (ElementosVM.puedoLimpiarCampos(listaTextBox))
+                e.CanExecute = true;
         }
 
         private void eliminar_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -49,6 +67,32 @@ namespace Proyecto_Restaurante.UsersControls
             e.CanExecute = false;
 
             if (ElementosVM.puedoEliminar(PedidosDataGrid.SelectedItem != null)) // Si se ha seleccionado alguna celda del datagrid se podra eliminar
+                e.CanExecute = true;
+        }
+
+        private void LimpiarCampos_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            ElementosVM.limpiaCampos(listaTextBox);
+            PedidosDataGrid.SelectedItem = null;
+        }
+
+        private void Limpiar_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = false;
+            bool puedo = ElementosVM.puedoLimpiarCampos(listaTextBox);
+            if (puedo)
+                e.CanExecute = true;
+        }
+
+        private void Modificar_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+
+        }
+
+        private void Modificar_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = false;
+            if (ElementosVM.puedoLimpiarCampos(listaTextBox))
                 e.CanExecute = true;
         }
     }
