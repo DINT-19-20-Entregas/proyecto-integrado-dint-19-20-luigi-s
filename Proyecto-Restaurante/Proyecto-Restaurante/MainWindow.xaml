@@ -10,15 +10,6 @@
         WindowStyle="None"
         WindowState="Maximized"
         Title="MainWindow" Height="450" Width="800" Icon="Imagenes/luigi.ico">
-    <!--<Window.CommandBindings>
-        <CommandBinding
-            Command="local:CustomCommands.Exit"
-            Executed="Salir_Executed"/>
-        <CommandBinding
-            Command="local:CustomCommands.SendMessage"
-            Executed="SendMessage_Executed"
-            CanExecute="SendMessage_CanExecute"/>
-    </Window.CommandBindings>-->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"></RowDefinition>
