@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Data;
 
 namespace Proyecto_Restaurante.Vista_Modelo
@@ -32,6 +33,37 @@ namespace Proyecto_Restaurante.Vista_Modelo
             BBDDService.DeleteElementosCarta(e);
             BBDDService.UpdateDB();
             MessageBox.Show("Se eliminó el registro satisfactoriamente", "Correcto", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+        }
+
+        public static void limpiaCampos(List<TextBox> lista)
+        {
+            foreach(var item in lista)
+                item.Text = "";
+        }
+
+        public static bool puedoLimpiarCampos(List<TextBox> lista)
+        {
+            bool puedo = false;
+            if (lista != null)
+            {
+                foreach (var item in lista)
+                {
+                    if (item.Text.Trim() != "")
+                        puedo = true;
+                }
+            }
+            
+            return puedo;
+        }
+
+        public static void añadeElemento(elementosCarta elemento)
+        {
+            BBDDService.AddElementoCarta(elemento);
+        }
+
+        public static void modificaElemento(elementosCarta elemento)
+        {
+            BBDDService.AddElementoCarta(elemento);
         }
     }
 }

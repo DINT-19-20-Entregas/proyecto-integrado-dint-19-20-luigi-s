@@ -82,6 +82,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Comandos\CustomCommands.cs" />
     <Compile Include="Model\Categorias.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>

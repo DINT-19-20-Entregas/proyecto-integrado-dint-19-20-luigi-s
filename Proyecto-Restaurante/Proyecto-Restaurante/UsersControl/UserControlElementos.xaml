@@ -9,12 +9,20 @@
     <UserControl.CommandBindings>
         <CommandBinding
             Command="ApplicationCommands.New"
-            Executed="CommandBinding_Executed"
-            CanExecute="CommandBinding_CanExecute"/>
+            Executed="AñadirElemento_Executed"
+            CanExecute="AñadirElemento_CanExecute"/>
         <CommandBinding 
             Command="ApplicationCommands.Delete"
             Executed="eliminar_Executed"
             CanExecute="eliminar_CanExecute"/>
+        <CommandBinding
+            Command="local:CustomCommands.Limpiar" 
+            Executed="LimpiarCampos_Executed"
+            CanExecute="Limpiar_CanExecute"/>
+        <CommandBinding
+            Command="local:CustomCommands.Modificar" 
+            Executed="Modificar_Executed"
+            CanExecute="Modificar_CanExecute"/>
     </UserControl.CommandBindings>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -45,11 +53,14 @@
             <TextBox x:Name="DescripcionTextbox" Text="{Binding descripcion}"></TextBox>
             <TextBlock Text="Precio"></TextBlock>
             <TextBox x:Name="PrecioTextbox" Text="{Binding precio}"></TextBox>
+            <TextBlock Text="Categoria"></TextBlock>
+            <TextBox x:Name="IdCategoriaTextbox" Text="{Binding idCategoria}"></TextBox>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
 
-                <Button Content="Añadir" Width="100" Margin="10"></Button>
-                <Button Content="Modificar" Width="100" Margin="10"></Button>
+                <Button Content="Añadir" Width="100" Margin="10" Command="ApplicationCommands.New"></Button>
+                <Button Content="Modificar" Width="100" Margin="10" Command="local:CustomCommands.Modificar"></Button>
+                <Button Content="Limpiar" Width="100" Margin="10" Command="local:CustomCommands.Limpiar"></Button>
 
             </StackPanel>
 
