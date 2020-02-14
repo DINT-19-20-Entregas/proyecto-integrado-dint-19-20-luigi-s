@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proyecto_Clientes.VistaModelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,25 +14,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Proyecto_Clientes
+namespace Proyecto_Clientes.UsersControls
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para CartaUser.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CartaUser : UserControl
     {
-        public MainWindow()
+        public CartaUser()
         {
             InitializeComponent();
-        }
-        private void GridBarraTitulo_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
-
-        private void CerrarButton_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
+            this.DataContext = new VMCarta();
         }
     }
 }
