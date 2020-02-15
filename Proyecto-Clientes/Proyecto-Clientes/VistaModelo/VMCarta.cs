@@ -45,5 +45,11 @@ namespace Proyecto_Clientes.VistaModelo
         {
             ListaElementosPedidos.Add(elemento);
         }
+
+        public static void inicializaVentanaPrecios()
+        {
+            VentanaConfirmar vc = new VentanaConfirmar();
+            vc.ShowDialog();
+        }
     }
 }

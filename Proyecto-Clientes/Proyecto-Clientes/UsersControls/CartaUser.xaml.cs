@@ -28,6 +28,10 @@ namespace Proyecto_Clientes.UsersControls
             this.DataContext = new VMCarta();
         }
 
+        private void FinalizarClick(object sender, RoutedEventArgs e)
+        {
+            VMCarta.inicializaVentanaPrecios();
+        }
         private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (CategoriasListBox.SelectedItem != null)

@@ -32,8 +32,5 @@
         </Grid>
 
         <user:CartaUser Grid.Row="1"></user:CartaUser>
-
-        
-
     </Grid>
 </Window>

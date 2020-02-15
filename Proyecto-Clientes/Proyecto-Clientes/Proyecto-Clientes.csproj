@@ -83,6 +83,13 @@
     <Compile Include="UsersControls\CartaUser.xaml.cs">
       <DependentUpon>CartaUser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UsersControls\UserControlPrecio.xaml.cs">
+      <DependentUpon>UserControlPrecio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\VentanaConfirmar.xaml.cs">
+      <DependentUpon>VentanaConfirmar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VistaModelo\PrecioVM.cs" />
     <Compile Include="VistaModelo\VMCarta.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -118,6 +125,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UsersControls\CartaUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UsersControls\UserControlPrecio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\VentanaConfirmar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
