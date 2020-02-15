@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace Proyecto_Clientes.VistaModelo
 {
@@ -17,10 +18,32 @@ namespace Proyecto_Clientes.VistaModelo
         public ObservableCollection<elementosCarta> ListaElementos { get; set; }
         public ObservableCollection<Categorias> ListaCategorias { get; set; }
 
+        public ObservableCollection<elementosCarta> ListaElementosPedidos { get; set; }
+
+        Categorias categoriaSeleccionada;
+
         public VMCarta()
         {
-            ListaElementos = BBDDService.GetElementosCarta();
+            ListaElementos = BBDDService.GetElementos();
             ListaCategorias = BBDDService.GetCategorias();
+            ListaElementosPedidos = new ObservableCollection<elementosCarta>();
+     
+        }
+
+        public void AsignarCategoriaSeleccionada(ListBox listaCategorias)
+        {
+            categoriaSeleccionada = (Categorias)listaCategorias.SelectedItem;
+            ListaElementos = this.Convert<elementosCarta>(categoriaSeleccionada.elementosCarta);
+        }
+
+        public ObservableCollection<elementosCarta> Convert<elementosCarta>(IEnumerable<elementosCarta> original)
+        {
+            return new ObservableCollection<elementosCarta>(original);
+        }
+
+        public void AñadirElementoAPedido(elementosCarta elemento)
+        {
+            ListaElementosPedidos.Add(elemento);
         }
     }
 }

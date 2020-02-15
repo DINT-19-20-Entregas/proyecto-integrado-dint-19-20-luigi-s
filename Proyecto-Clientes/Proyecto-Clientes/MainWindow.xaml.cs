@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Proyecto_Clientes.Model;
+using Proyecto_Clientes.VistaModelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
