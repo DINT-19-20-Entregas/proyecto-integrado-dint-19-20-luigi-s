@@ -1,5 +1,4 @@
-﻿using Proyecto_Clientes.VistaModelo;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,25 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Proyecto_Clientes.UsersControls
+namespace Proyecto_Clientes
 {
     /// <summary>
-    /// Lógica de interacción para CartaUser.xaml
+    /// Lógica de interacción para VentanaConfirmar.xaml
     /// </summary>
-    public partial class CartaUser : UserControl
+    public partial class VentanaConfirmar : Window
     {
-        public CartaUser()
+        public VentanaConfirmar()
         {
             InitializeComponent();
-            this.DataContext = new VMCarta();
-        }
-
-        private void FinalizarClick(object sender, RoutedEventArgs e)
-        {
-            VMCarta.inicializaVentanaPrecios();
         }
     }
 }

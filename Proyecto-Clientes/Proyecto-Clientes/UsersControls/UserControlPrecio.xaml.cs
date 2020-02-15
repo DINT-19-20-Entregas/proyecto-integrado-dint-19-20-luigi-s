@@ -1,5 +1,4 @@
-﻿using Proyecto_Clientes.VistaModelo;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,19 +16,13 @@ using System.Windows.Shapes;
 namespace Proyecto_Clientes.UsersControls
 {
     /// <summary>
-    /// Lógica de interacción para CartaUser.xaml
+    /// Lógica de interacción para UserControlPrecio.xaml
     /// </summary>
-    public partial class CartaUser : UserControl
+    public partial class UserControlPrecio : UserControl
     {
-        public CartaUser()
+        public UserControlPrecio()
         {
             InitializeComponent();
-            this.DataContext = new VMCarta();
-        }
-
-        private void FinalizarClick(object sender, RoutedEventArgs e)
-        {
-            VMCarta.inicializaVentanaPrecios();
         }
     }
 }

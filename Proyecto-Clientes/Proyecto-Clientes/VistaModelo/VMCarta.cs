@@ -22,5 +22,11 @@ namespace Proyecto_Clientes.VistaModelo
             ListaElementos = BBDDService.GetElementosCarta();
             ListaCategorias = BBDDService.GetCategorias();
         }
+
+        public static void inicializaVentanaPrecios()
+        {
+            VentanaConfirmar vc = new VentanaConfirmar();
+            vc.ShowDialog();
+        }
     }
 }
