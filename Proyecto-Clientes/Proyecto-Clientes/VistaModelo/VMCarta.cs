@@ -1,4 +1,4 @@
-﻿using Proyecto_Clientes.Model;
+﻿ using Proyecto_Clientes.Model;
 using Proyecto_Clientes.Service;
 using System;
 using System.Collections.Generic;
@@ -18,7 +18,7 @@ namespace Proyecto_Clientes.VistaModelo
         public ObservableCollection<elementosCarta> ListaElementos { get; set; }
         public ObservableCollection<Categorias> ListaCategorias { get; set; }
 
-        public ObservableCollection<elementosCarta> ListaElementosPedidos { get; set; }
+        public static ObservableCollection<elementosCarta> ListaElementosPedidos { get; set; }
 
         Categorias categoriaSeleccionada;
 
@@ -27,7 +27,7 @@ namespace Proyecto_Clientes.VistaModelo
             ListaElementos = BBDDService.GetElementos();
             ListaCategorias = BBDDService.GetCategorias();
             ListaElementosPedidos = new ObservableCollection<elementosCarta>();
-     
+            categoriaSeleccionada = new Categorias();
         }
 
         public void AsignarCategoriaSeleccionada(ListBox listaCategorias)
@@ -48,12 +48,10 @@ namespace Proyecto_Clientes.VistaModelo
 
         public void QuitarElementoPedido(elementosCarta elementos)
         {
-            ListaElementosPedidos.Remove(elementos);
-            
-        public static void inicializaVentanaPrecios()
-        {
-            VentanaConfirmar vc = new VentanaConfirmar();
-            vc.ShowDialog();
+            if (ListaElementosPedidos.Count > 1)
+                ListaElementosPedidos.Remove(elementos);
+            else
+                ListaElementosPedidos.Clear();
         }
     }
 }

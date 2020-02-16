@@ -1,6 +1,9 @@
-﻿using Proyecto_Clientes.VistaModelo;
+﻿using Proyecto_Clientes.Model;
+using Proyecto_Clientes.Service;
+using Proyecto_Clientes.VistaModelo;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,10 +24,28 @@ namespace Proyecto_Clientes.UsersControls
     /// </summary>
     public partial class UserControlPrecio : UserControl
     {
+        int iva;
+        ObservableCollection<elementosCarta> elementosLista;
         public UserControlPrecio()
         {
             InitializeComponent();
-            MessageBox.Show(PrecioVM.GetIva().ToString());
+            elementosLista = VMCarta.ListaElementosPedidos;
+            iva = PrecioVM.GetIva();
+            ElementosPedidosListBox.DataContext = elementosLista;
+
+            PrecioConIvaTextBlock.Text += Math.Round(PrecioVM.CalculaPrecioConIva(elementosLista), 2).ToString();
+            PrecioSinIvaTextBlock.Text += Math.Round(PrecioVM.CalculaPrecioSinIva(elementosLista), 2).ToString();
+        }
+
+        private void AceptarButton_Click(object sender, RoutedEventArgs e)
+        {
+            Pedidos p = new Pedidos();
+            MessageBox.Show("Pedido realizado correctamente", "Un camarero le atenderá en un momento", MessageBoxButton.OK, MessageBoxImage.Information);
+            /*foreach (var item in elementosLista)
+            {
+                p.elementosCarta = item.
+            }
+            BBDDService.AddPedido()*/
         }
     }
 }

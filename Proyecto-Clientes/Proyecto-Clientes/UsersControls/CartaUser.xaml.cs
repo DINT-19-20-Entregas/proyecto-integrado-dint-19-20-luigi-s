@@ -30,7 +30,7 @@ namespace Proyecto_Clientes.UsersControls
 
         private void FinalizarClick(object sender, RoutedEventArgs e)
         {
-            VMCarta.inicializaVentanaPrecios();
+            inicializaVentanaPrecios();
         }
         private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -48,6 +48,12 @@ namespace Proyecto_Clientes.UsersControls
         private void Grid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             (DataContext as VMCarta).QuitarElementoPedido((elementosCarta)ElementosPedidosListBox.SelectedItem);
+        }
+
+        public void inicializaVentanaPrecios()
+        {
+            VentanaConfirmar vc = new VentanaConfirmar();
+            vc.ShowDialog();
         }
     }
 }
