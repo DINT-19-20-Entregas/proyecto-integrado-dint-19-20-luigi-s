@@ -1,4 +1,5 @@
-﻿using Proyecto_Clientes.VistaModelo;
+﻿using Proyecto_Clientes.Model;
+using Proyecto_Clientes.VistaModelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,18 @@ namespace Proyecto_Clientes.UsersControls
         private void FinalizarClick(object sender, RoutedEventArgs e)
         {
             VMCarta.inicializaVentanaPrecios();
+        }
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (CategoriasListBox.SelectedItem != null)
+            {
+                (DataContext as VMCarta).AsignarCategoriaSeleccionada(CategoriasListBox);
+            }
+        }
+
+        private void Grid_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
+        {
+            (DataContext as VMCarta).AñadirElementoAPedido((elementosCarta)ElementosListBox.SelectedItem);
         }
     }
 }

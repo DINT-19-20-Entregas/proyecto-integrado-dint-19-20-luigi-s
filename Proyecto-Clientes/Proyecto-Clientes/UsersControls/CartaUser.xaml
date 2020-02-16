@@ -25,10 +25,10 @@
                 </Button>
             </StackPanel>
             
-            <ListBox ItemsSource="{Binding ListaCategorias}" HorizontalAlignment="Center">
+            <ListBox x:Name="CategoriasListBox" ItemsSource="{Binding ListaCategorias}" HorizontalAlignment="Center">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Grid HorizontalAlignment="Center">
+                        <Grid HorizontalAlignment="Center" MouseLeftButtonDown="Grid_MouseLeftButtonDown" >
                             <Rectangle Height="160" Width="200" Margin="5" Fill="White" RadiusY="10" RadiusX="10" >
                                 <Rectangle.Effect>
                                     <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
@@ -46,7 +46,7 @@
             </ListBox>
         </DockPanel>       
 
-        <ListBox Grid.Column="2" HorizontalAlignment="Center"  ItemsSource="{Binding ListaElementos}">
+        <ListBox Grid.Column="2" HorizontalAlignment="Center"  ItemsSource="{Binding ListaElementos}" x:Name="ElementosListBox" >
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel></WrapPanel>
@@ -54,7 +54,7 @@
             </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
+                    <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown_1" >
                         <Rectangle Height="400" Width="500" Margin="20" Fill="White" RadiusY="10" RadiusX="10" >
                             <Rectangle.Effect>
                                 <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
