@@ -15,8 +15,13 @@ namespace Proyecto_Clientes.VistaModelo
 {
     public class PrecioVM
     {
+        public static bool PedidoAceptado { get; set; }
+        public static bool CierroVentana { get; set; }
+
         public PrecioVM()
         {
+            PedidoAceptado = false;
+            CierroVentana = false;
         }
 
         public static int GetIva()

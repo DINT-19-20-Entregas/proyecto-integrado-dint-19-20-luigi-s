@@ -24,5 +24,10 @@ namespace Proyecto_Clientes
         {
             InitializeComponent();
         }
+
+        public void FinalizarVentana()
+        {
+            Close();
+        }
     }
 }

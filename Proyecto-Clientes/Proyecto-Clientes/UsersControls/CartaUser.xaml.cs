@@ -54,6 +54,12 @@ namespace Proyecto_Clientes.UsersControls
         {
             VentanaConfirmar vc = new VentanaConfirmar();
             vc.ShowDialog();
+            if (PrecioVM.PedidoAceptado)
+            {
+                VMCarta.ListaElementosPedidos.Clear();
+                PrecioVM.PedidoAceptado = false; //Para que otros clientes puedan pedir
+            }
+            vc.FinalizarVentana();
         }
     }
 }

@@ -25,6 +25,7 @@ namespace Proyecto_Clientes.UsersControls
     public partial class UserControlPrecio : UserControl
     {
         int iva;
+
         ObservableCollection<elementosCarta> elementosLista;
         public UserControlPrecio()
         {
@@ -40,12 +41,13 @@ namespace Proyecto_Clientes.UsersControls
         private void AceptarButton_Click(object sender, RoutedEventArgs e)
         {
             Pedidos p = new Pedidos();
-            MessageBox.Show("Pedido realizado correctamente", "Un camarero le atenderá en un momento", MessageBoxButton.OK, MessageBoxImage.Information);
-            /*foreach (var item in elementosLista)
-            {
-                p.elementosCarta = item.
-            }
-            BBDDService.AddPedido()*/
+            MessageBox.Show("Un camarero le atenderá en un momento", "Pedido realizado correctamente", MessageBoxButton.OK, MessageBoxImage.Information);
+            p.elementosCarta = elementosLista;
+            p.idPedido = 0;
+            p.fecha = DateTime.Now;
+            p.servido = false;
+            BBDDService.AddPedido(p);
+            PrecioVM.PedidoAceptado = true;
         }
     }
 }
