@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -8,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Newtonsoft.Json;
+using Proyecto_Clientes.Model;
 
 namespace Proyecto_Clientes.VistaModelo
 {
@@ -15,7 +17,6 @@ namespace Proyecto_Clientes.VistaModelo
     {
         public PrecioVM()
         {
-            
         }
 
         public static int GetIva()
@@ -26,6 +27,22 @@ namespace Proyecto_Clientes.VistaModelo
             dynamic m = JsonConvert.DeserializeObject(json);
             iva = m.iva; // Aqui asigo a iva el valor que encuentre en el JSON con el nombre "iva", en este caso 10
             return Int32.Parse(iva);
+        }
+
+        public static double CalculaPrecioConIva(ObservableCollection<elementosCarta> listaPedidos)
+        {
+            double precio = 0;
+            foreach (var item in listaPedidos)
+                precio += item.precio;
+            return precio+(precio*GetIva()/100);
+        }
+
+        public static double CalculaPrecioSinIva(ObservableCollection<elementosCarta> listaPedidos)
+        {
+            double precio = 0;
+            foreach (var item in listaPedidos)
+                precio += item.precio;
+            return precio;
         }
     }
 }

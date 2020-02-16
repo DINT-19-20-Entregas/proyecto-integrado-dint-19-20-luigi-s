@@ -8,16 +8,30 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="170">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="200">
             <TextBlock Text="Pedidos" FontSize="25" Foreground="DarkRed" DockPanel.Dock="Left" Margin="0, 0, 0, 10"></TextBlock>
-            <ListBox x:Name="PedidosListBox" HorizontalAlignment="Left" Width="170" Height="405">
-                <ListBox.Items>
-                    <TextBlock>Hola</TextBlock>
-                </ListBox.Items>
+            <ListBox  ItemsSource="{Binding}" HorizontalAlignment="Left" x:Name="ElementosPedidosListBox">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="100" Width="300">
+                            <Rectangle Fill="White" RadiusY="10" RadiusX="10" >
+                                <Rectangle.Effect>
+                                    <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
+                                </Rectangle.Effect>
+                            </Rectangle>
+                            <Grid>
+                                <DockPanel LastChildFill="False">
+                                    <Image Height="50" Width="50" Source="{Binding imagen}" DockPanel.Dock="Left"></Image>
+                                    <TextBlock Text="{Binding nombreElemento}" VerticalAlignment="Center" DockPanel.Dock="Left" FontWeight="Bold" FontSize="10"></TextBlock>
+                                </DockPanel>
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
             </ListBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-            <Button x:Name="AceptarButton" Content="Aceptar" Margin="10" IsDefault="True"></Button>
+            <Button x:Name="AceptarButton" Content="Aceptar" Margin="10" IsDefault="True" Click="AceptarButton_Click"></Button>
             <Button x:Name="CancelarButton" Content="Cancelar" Margin="10" IsCancel="True"></Button>
         </StackPanel>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
