@@ -43,5 +43,10 @@ namespace Proyecto_Clientes
             else
                 WindowState = WindowState.Maximized;
         }
+
+        private void ButtonAyuda_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("AyudaCliente.chm");
+        }
     }
 }

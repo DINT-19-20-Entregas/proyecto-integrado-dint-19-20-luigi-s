@@ -19,8 +19,8 @@
         
         <Grid x:Name="GridBarraTitulo" Grid.Row="0" Background="DarkRed" MouseDown="GridBarraTitulo_MouseDown">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0">
-                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
-                    <materialDesign:PackIcon Kind="Account"/>
+                <Button x:Name="ButtonAyuda" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="ButtonAyuda_Click" >
+                    <materialDesign:PackIcon Kind="Help"/>
                 </Button>
                 <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"  Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="Button_Click">
                     <materialDesign:PackIcon Kind="WindowMaximize"/>
@@ -28,6 +28,7 @@
                 <Button x:Name="ButtonFechar" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="CerrarButton_Click">
                     <materialDesign:PackIcon Kind="Power"/>
                 </Button>
+                
             </StackPanel>
         </Grid>
 
