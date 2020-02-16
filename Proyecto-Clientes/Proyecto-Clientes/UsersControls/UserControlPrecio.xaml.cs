@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proyecto_Clientes.VistaModelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace Proyecto_Clientes.UsersControls
         public UserControlPrecio()
         {
             InitializeComponent();
+            MessageBox.Show(PrecioVM.GetIva().ToString());
         }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:user="clr-namespace:Proyecto_Clientes.UsersControls"
         mc:Ignorable="d"
-        Title="Confirmar pedido" Height="450" Width="700" WindowStyle="None" WindowStartupLocation="CenterScreen" ShowInTaskbar="False">
+        Title="Confirmar pedido" Height="450" Width="700" WindowStyle="None" WindowStartupLocation="CenterScreen" ShowInTaskbar="False" ResizeMode="NoResize">
     <Grid>
         <user:UserControlPrecio></user:UserControlPrecio>
     </Grid>

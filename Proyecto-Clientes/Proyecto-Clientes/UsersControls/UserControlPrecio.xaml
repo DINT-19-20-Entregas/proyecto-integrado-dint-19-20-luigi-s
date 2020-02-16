@@ -21,8 +21,8 @@
             <Button x:Name="CancelarButton" Content="Cancelar" Margin="10" IsCancel="True"></Button>
         </StackPanel>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Precio SIN IVA: " FontSize="30" Foreground="Red" Margin="0, 0, 0, 10"></TextBlock>
-            <TextBlock Text="Precio CON IVA: " FontSize="30" Foreground="Red"></TextBlock>
+            <TextBlock x:Name="PrecioSinIvaTextBlock" Text="Precio SIN IVA: " FontSize="30" Foreground="Red" Margin="0, 0, 0, 10"></TextBlock>
+            <TextBlock x:Name="PrecioConIvaTextBlock" Text="Precio CON IVA: " FontSize="30" Foreground="Red"></TextBlock>
         </StackPanel>
     </Grid>
 </UserControl>
