@@ -26,6 +26,6 @@ namespace Proyecto_Clientes.VistaModelo
             dynamic m = JsonConvert.DeserializeObject(json);
             iva = m.iva; // Aqui asigo a iva el valor que encuentre en el JSON con el nombre "iva", en este caso 10
             return Int32.Parse(iva);
-        } 
+        }
     }
 }
