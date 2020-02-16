@@ -18,7 +18,7 @@
         <DockPanel Grid.Column="0" LastChildFill="True">
 
             <StackPanel Height="100" DockPanel.Dock="Top">
-                <Button Margin="20" Height="50" Background="Red" BorderBrush="DarkRed">
+                <Button Margin="20" Height="50" Background="Red" BorderBrush="DarkRed" Click="FinalizarClick">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="ContentPaste" VerticalAlignment="Center"/>
                         <TextBlock HorizontalAlignment="Center" Text="FINALIZAR PEDIDO" FontFamily="Champagne &amp; Limousines"/>
