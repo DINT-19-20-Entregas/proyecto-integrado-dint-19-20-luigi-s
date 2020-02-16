@@ -46,6 +46,10 @@ namespace Proyecto_Clientes.VistaModelo
             ListaElementosPedidos.Add(elemento);
         }
 
+        public void QuitarElementoPedido(elementosCarta elementos)
+        {
+            ListaElementosPedidos.Remove(elementos);
+            
         public static void inicializaVentanaPrecios()
         {
             VentanaConfirmar vc = new VentanaConfirmar();

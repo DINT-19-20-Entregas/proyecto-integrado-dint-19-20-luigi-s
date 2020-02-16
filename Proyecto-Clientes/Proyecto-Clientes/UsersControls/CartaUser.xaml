@@ -12,6 +12,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <DockPanel Grid.Column="0" LastChildFill="True">
@@ -28,7 +29,7 @@
             <ListBox x:Name="CategoriasListBox" ItemsSource="{Binding ListaCategorias}" HorizontalAlignment="Center">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Grid HorizontalAlignment="Center" MouseLeftButtonDown="Grid_MouseLeftButtonDown" >
+                        <Grid HorizontalAlignment="Center" MouseLeftButtonUp="Grid_MouseLeftButtonDown" >
                             <Rectangle Height="160" Width="200" Margin="5" Fill="White" RadiusY="10" RadiusX="10" >
                                 <Rectangle.Effect>
                                     <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
@@ -46,7 +47,7 @@
             </ListBox>
         </DockPanel>       
 
-        <ListBox Grid.Column="2" HorizontalAlignment="Center"  ItemsSource="{Binding ListaElementos}" x:Name="ElementosListBox" >
+        <ListBox Grid.Column="1" HorizontalAlignment="Center"  ItemsSource="{Binding ListaElementos}" x:Name="ElementosListBox" >
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel></WrapPanel>
@@ -54,7 +55,7 @@
             </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown_1" >
+                    <Grid MouseLeftButtonUp="Grid_MouseLeftButtonDown_1" >
                         <Rectangle Height="400" Width="500" Margin="20" Fill="White" RadiusY="10" RadiusX="10" >
                             <Rectangle.Effect>
                                 <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
@@ -69,6 +70,28 @@
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-        </ListBox>                
+        </ListBox>
+
+        <ListBox Grid.Column="2" ItemsSource="{Binding ListaElementosPedidos}" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" x:Name="ElementosPedidosListBox">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid    Height="100" Width="300">
+                        <Rectangle Fill="White" RadiusY="10" RadiusX="10" >
+                            <Rectangle.Effect>
+                                <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
+                            </Rectangle.Effect>
+                        </Rectangle>
+                        <Grid>
+                            <DockPanel LastChildFill="False">
+                                <Image Height="50" Width="50" Source="{Binding imagen}" DockPanel.Dock="Left"></Image>
+                                <TextBlock Text="{Binding nombreElemento}" VerticalAlignment="Center" DockPanel.Dock="Left" FontWeight="Bold" FontSize="10"></TextBlock>
+                                <Image Width="50" Height="50" Source="/Proyecto-Clientes;component/Assets/cross.png" DockPanel.Dock="Right" Margin="0,0,20,0" MouseLeftButtonUp="Grid_MouseLeftButtonUp"/>
+                            </DockPanel>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        
     </Grid>
 </UserControl>
