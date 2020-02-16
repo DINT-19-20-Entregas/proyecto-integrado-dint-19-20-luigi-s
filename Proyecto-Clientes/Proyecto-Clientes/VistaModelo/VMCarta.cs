@@ -45,5 +45,10 @@ namespace Proyecto_Clientes.VistaModelo
         {
             ListaElementosPedidos.Add(elemento);
         }
+
+        public void QuitarElementoPedido(elementosCarta elementos)
+        {
+            ListaElementosPedidos.Remove(elementos);
+        }
     }
 }

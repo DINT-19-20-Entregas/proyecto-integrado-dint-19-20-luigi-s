@@ -8,7 +8,7 @@
         xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"        
         xmlns:user="clr-namespace:Proyecto_Clientes.UsersControls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize" WindowState="Maximized" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize" WindowState="Maximized" WindowStartupLocation="CenterScreen" WindowStyle="None" Icon="Assets/luigi.ico">
 
     <Grid >
         <Grid.RowDefinitions>

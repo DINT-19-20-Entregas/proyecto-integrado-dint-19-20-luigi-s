@@ -40,5 +40,10 @@ namespace Proyecto_Clientes.UsersControls
         {
             (DataContext as VMCarta).AñadirElementoAPedido((elementosCarta)ElementosListBox.SelectedItem);
         }
+
+        private void Grid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            (DataContext as VMCarta).QuitarElementoPedido((elementosCarta)ElementosPedidosListBox.SelectedItem);
+        }
     }
 }

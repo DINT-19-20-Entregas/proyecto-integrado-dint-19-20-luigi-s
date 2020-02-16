@@ -37,6 +37,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Assets\luigi.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dragablz, Version=0.0.3.203, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dragablz.0.0.3.203\lib\net45\Dragablz.dll</HintPath>
@@ -161,6 +164,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\cross.ico" />
+    <Resource Include="Assets\luigi.ico" />
+    <Resource Include="Assets\cross.png" />
     <Content Include="Model\BaseDatos.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>BaseDatos.Context.cs</LastGenOutput>
