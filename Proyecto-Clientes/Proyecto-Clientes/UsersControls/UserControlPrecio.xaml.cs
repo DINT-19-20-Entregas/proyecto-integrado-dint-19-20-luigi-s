@@ -41,11 +41,12 @@ namespace Proyecto_Clientes.UsersControls
         {
             Pedidos p = new Pedidos();
             MessageBox.Show("Pedido realizado correctamente", "Un camarero le atenderá en un momento", MessageBoxButton.OK, MessageBoxImage.Information);
-            /*foreach (var item in elementosLista)
+            foreach (elementosCarta item in elementosLista)
             {
-                p.elementosCarta = item.
+                p.elementosCarta.Add(item);
             }
-            BBDDService.AddPedido()*/
+            p.fecha = DateTime.Now;
+            BBDDService.AddPedido(p);
         }
     }
 }

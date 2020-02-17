@@ -11,8 +11,8 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="300"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <DockPanel Grid.Column="0" LastChildFill="True">
@@ -56,15 +56,15 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid MouseLeftButtonUp="Grid_MouseLeftButtonDown_1" >
-                        <Rectangle Height="400" Width="500" Margin="20" Fill="White" RadiusY="10" RadiusX="10" >
+                        <Rectangle Height="200" Width="300" Margin="20" Fill="White" RadiusY="10" RadiusX="10" >
                             <Rectangle.Effect>
                                 <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
                             </Rectangle.Effect>
                         </Rectangle>
-                        <Grid Margin="25" Height="400" Width="500">
+                        <Grid Margin="25" Height="200" Width="300">
                             <DockPanel LastChildFill="True">                                
                                 <TextBlock Text="{Binding nombreElemento}" HorizontalAlignment="Center" DockPanel.Dock="Bottom" FontWeight="Bold" FontSize="20"></TextBlock>
-                                <Image Height="400" Width="500" Source="{Binding imagen}"></Image>
+                                <Image Height="200" Width="300" Source="{Binding imagen}"></Image>
                             </DockPanel>                            
                         </Grid>
                     </Grid>
@@ -83,9 +83,9 @@
                         </Rectangle>
                         <Grid>
                             <DockPanel LastChildFill="False">
-                                <Image Height="50" Width="50" Source="{Binding imagen}" DockPanel.Dock="Left"></Image>
-                                <TextBlock Text="{Binding nombreElemento}" VerticalAlignment="Center" DockPanel.Dock="Left" FontWeight="Bold" FontSize="10"></TextBlock>
-                                <Image Width="50" Height="50" Source="/Proyecto-Clientes;component/Assets/cross.png" DockPanel.Dock="Right" Margin="0,0,20,0" MouseLeftButtonUp="Grid_MouseLeftButtonUp"/>
+                                <Image Height="100" Width="50" Source="{Binding imagen}" DockPanel.Dock="Left"></Image>
+                                <TextBlock Text="{Binding nombreElemento}" VerticalAlignment="Center" DockPanel.Dock="Left" FontWeight="Bold" FontSize="20"></TextBlock>
+                                <Image Width="100" Height="50" Source="/Proyecto-Clientes;component/Assets/cross.png" DockPanel.Dock="Right" Margin="0,0,20,0" MouseLeftButtonUp="Grid_MouseLeftButtonUp"/>
                             </DockPanel>
                         </Grid>
                     </Grid>
